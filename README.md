@@ -12,10 +12,10 @@ A preview function make rapid iterations possible.
 `python dreamer.py --input myvideo/video.mp4 --output myvideo --extract 1`
 
 2. Run DeepDream  
-`python dreamer.py --input myvideo --output myvideo/frames`
+`python dreamer.py --input myvideo --output frames`
 
 3. Create Video  
-`python dreamer.py --input myvideo --output myvideo/deepdreamvideo.mp4 --create 1`
+`python dreamer.py --input frames --output myvideo/deepdreamvideo.mp4 --create 1`
 
 (change "myvideo" to your directory/file name)
 
