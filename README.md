@@ -19,6 +19,7 @@ A preview function make rapid iterations possible.
 
 (change "myvideo" to your directory/file name)
 
+![deepdreamanim](https://i.imgur.com/MpoYxZX.gif "deep dream animation")
 
 ## Settings
 Create a preview  
@@ -33,7 +34,7 @@ Tweak settings
 Use the above commands and stack them by putting a ";" inbetween commands.  
 `python dreamer.py --input myvideo --output myvideo/frames;python dreamer.py --input myvideo2 --output myvideo2/frames`
 
-![deepdreamanim](https://i.imgur.com/MpoYxZX.gif "deep dream animation")
+![deepdreamanim](https://i.imgur.com/6bpKNVL.gif "deep dream animation")
 
 ## Requirements
 - Python
@@ -44,7 +45,7 @@ Use the above commands and stack them by putting a ";" inbetween commands.
 The tool currently does not handle audio.
 Check out [DeepDreamVideo](https://github.com/graphific/DeepDreamVideo) by [@graphific](https://twitter.com/graphific)
 
-![deepdreamanim](https://i.imgur.com/6bpKNVL.gif "deep dream animation")
+![deepdreamanim](https://i.imgur.com/eH1oE6a.gif "deep dream animation")
 
 ## Credits
 
