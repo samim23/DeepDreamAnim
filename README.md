@@ -31,12 +31,12 @@ Tweak settings
 
 ## Batch Processing
 Use the above commands and stack them by putting a ";" inbetween commands.  
-`python dreamer.py --input myvideo --output myvideo/frames;python dreamer.py --input myvideo --output myvideo/frames`
+`python dreamer.py --input myvideo --output myvideo/frames;python dreamer.py --input myvideo2 --output myvideo2/frames`
 
 
 ## Requirements
-- python
-- caffe (and other deepdream dependencies)
+- Python
+- Caffe (and other deepdream dependencies)
 - FFMPEG
 
 ## Audio
