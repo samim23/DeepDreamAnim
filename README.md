@@ -43,6 +43,8 @@ Use the above commands and stack them by putting a ";" inbetween commands.
 The tool currently does not handle audio.
 Check out [DeepDreamVideo](github.com/graphific/DeepDreamVideo) by [@graphific](twitter.com/graphific)
 
+![deepdreamanim](https://i.imgur.com/MpoYxZX.gif "deep dream animation")
+
 ## Credits
 
 Samim | [Samim.io](samim.io) | [@samim](twitter.com/samim)
