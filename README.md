@@ -1,6 +1,6 @@
 # DeepDream Animator
 
-This tool helps to create animations with [deepdream](github.com/google/deepdream).
+This tool helps to create animations with [deepdream](https://github.com/google/deepdream).
 Extract frames from videos, process them with deepdream and then output as new video file.
 Frame blending option is provided, to ensure "stable" dreams across frames.
 A preview function make rapid iterations possible.
@@ -41,10 +41,10 @@ Use the above commands and stack them by putting a ";" inbetween commands.
 
 ## Audio
 The tool currently does not handle audio.
-Check out [DeepDreamVideo](github.com/graphific/DeepDreamVideo) by [@graphific](twitter.com/graphific)
+Check out [DeepDreamVideo](https://github.com/graphific/DeepDreamVideo) by [@graphific](https://twitter.com/graphific)
 
 ![deepdreamanim](https://i.imgur.com/MpoYxZX.gif "deep dream animation")
 
 ## Credits
 
-Samim | [Samim.io](samim.io) | [@samim](twitter.com/samim)
+Samim | [Samim.io](http://samim.io) | [@samim](https://twitter.com/samim)
