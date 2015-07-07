@@ -38,6 +38,9 @@ Use the above commands and stack them by putting a ";" inbetween commands.
 
 ![deepdreamanim](https://i.imgur.com/6bpKNVL.gif "deep dream animation")
 
+## Creative Request
+It would be very helpful for other deepdream researchers, if you could include the used parameters in the description of your youtube videos. You can find the parameters in the image filenames.
+
 ## Requirements
 - Python
 - Caffe (and other deepdream dependencies)
@@ -48,6 +51,7 @@ The tool currently does not handle audio.
 Check out [DeepDreamVideo](https://github.com/graphific/DeepDreamVideo) by [@graphific](https://twitter.com/graphific)
 
 ![deepdreamanim](https://i.imgur.com/eH1oE6a.gif "deep dream animation")
+
 
 ## Credits
 
