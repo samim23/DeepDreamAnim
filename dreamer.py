@@ -145,74 +145,82 @@ def make_sure_path_exists(path):
             raise
 
 def main(inputdir,outputdir,preview,octaves,octave_scale,iterations,jitter,zoom,stepsize,blend,layers):
-	make_sure_path_exists(inputdir)
-	make_sure_path_exists(outputdir)
+    make_sure_path_exists(inputdir)
+    make_sure_path_exists(outputdir)
 
-	if preview is None: preview = 0
-	if octaves is None: octaves = 4
-	if octave_scale is None: octave_scale = 1.5
-	if iterations is None: iterations = 10
-	if jitter is None: jitter = 32
-	if jitter is None: jitter = 32
-	if zoom is None: zoom = 1
-	if stepsize is None: stepsize = 1.5
-	if blend is None: blend = 1.5
-	if layers is None: layers = ['inception_4c/output']
+    if preview is None: preview = 0
+    if octaves is None: octaves = 4
+    if octave_scale is None: octave_scale = 1.5
+    if iterations is None: iterations = 10
+    if jitter is None: jitter = 32
+    if jitter is None: jitter = 32
+    if zoom is None: zoom = 1
+    if stepsize is None: stepsize = 1.5
+    if blend is None: blend = 0.5
+    if layers is None: layers = ['inception_4c/output']
 
-	var_counter = 1
-	vidinput = os.listdir(inputdir)
-	vids = [];
+    var_counter = 1
+    vidinput = os.listdir(inputdir)
+    vids = [];
+    for frame in vidinput:
+        if not ".jpeg" in frame: continue
+        vids.append(frame)
 
-	for frame in vidinput:
-		if not ".jpeg" in frame: continue
-		vids.append(frame)
+    img = PIL.Image.open(inputdir+'/'+vids[0])
+    if preview is not 0:
+        img = resizePicture(inputdir+'/'+vids[0],preview)
 
-	img = PIL.Image.open(inputdir+'/'+vids[0])
-	if preview is not 0:
-		img = resizePicture(inputdir+'/'+vids[0],preview)
-	
-	frame = np.float32(img)
+    frame = np.float32(img)
 
-	for v in range(len(vids)):
-		vid = vids[v]
+    for v in range(len(vids)):
+        vid = vids[v]
 
-		now = time.time()
-		#net.blobs.keys()
+        now = time.time()
+        #net.blobs.keys()
 
-		h, w = frame.shape[:2]
-		s = 0.05 # scale coefficient
+        h, w = frame.shape[:2]
+        s = 0.05 # scale coefficient
 
-		for i in xrange(zoom):
-			print 'Processing: ' + inputdir+'/'+ vid
-			
-			endparam = layers[var_counter % len(layers)]
-			var_end = endparam.replace("/", "-");
-			
-			frame = deepdream(net, frame, iter_n=iterations,step_size=stepsize, octave_n=octaves, octave_scale=octave_scale, jitter=jitter, end=endparam)
+        for i in xrange(zoom):
+            print 'Processing: ' + inputdir+'/'+ vid
 
-			later = time.time()
-			difference = int(later - now)
-			filenameCounter = 10000 + var_counter
-			saveframe = outputdir+"/"+str(filenameCounter) + '_' + "_octaves"+str(octaves)+"_iterations"+str(iterations)+"_octavescale"+str(octave_scale)+'_net'+var_end+ '_jitter' +  str(jitter) + '_stepsize' + str(stepsize) + '_blend' + str(blend) + '_renderTime' + str(difference) + 's' + '_filename'+ vid 
+            endparam = layers[var_counter % len(layers)]
+            var_end = endparam.replace("/", "-");
 
-			# Stats
-			print '***************************************'
-			print 'Saving Image As: ' + saveframe
-			print 'Frame ' + str(var_counter) + ' of ' + str(len(vids))
-			print 'Frame Time: ' + str(difference) + 's' 
-			timeleft = difference * (len(vids) - var_counter)
-			m, s = divmod(timeleft, 60)
-			h, m = divmod(m, 60)
-			print 'Estimated Total Time Remaining: ' + str(timeleft) + 's (' + "%d:%02d:%02d" % (h, m, s) + ')' 
-			print '***************************************'
+            frame = deepdream(net, frame, iter_n=iterations,step_size=stepsize, octave_n=octaves, octave_scale=octave_scale, jitter=jitter, end=endparam)
 
-			PIL.Image.fromarray(np.uint8(frame)).save(saveframe)
+            later = time.time()
+            difference = int(later - now)
+            filenameCounter = 10000 + var_counter
+            saveframe = outputdir+"/"+str(filenameCounter) + '_' + "_octaves"+str(octaves)+"_iterations"+str(iterations)+"_octavescale"+str(octave_scale)+'_net'+var_end+ '_jitter' +  str(jitter) + '_stepsize' + str(stepsize) + '_blend' + str(blend) + '_renderTime' + str(difference) + 's' + '_filename'+ vid 
 
-			newframe = inputdir + '/' + vids[v+1]
-			frame = morphPicture(saveframe,newframe,blend,preview)
-			frame = np.float32(frame)
+            # Stats
+            print '***************************************'
+            print 'Saving Image As: ' + saveframe
+            print 'Frame ' + str(var_counter) + ' of ' + str(len(vids))
+            print 'Frame Time: ' + str(difference) + 's' 
+            timeleft = difference * (len(vids) - var_counter)
+            m, s = divmod(timeleft, 60)
+            h, m = divmod(m, 60)
+            print 'Estimated Total Time Remaining: ' + str(timeleft) + 's (' + "%d:%02d:%02d" % (h, m, s) + ')' 
+            print '***************************************'
 
-			var_counter += 1
+            PIL.Image.fromarray(np.uint8(frame)).save(saveframe)
+
+            newframe = inputdir + '/' + vids[v+1]
+
+            print blend
+            if blend == 0:
+                newimg = PIL.Image.open(newframe)
+                if preview is not 0:
+                    newimg = resizePicture(newframe,preview)
+                frame = newimg
+            else:
+                frame = morphPicture(saveframe,newframe,blend,preview)
+
+            frame = np.float32(frame)
+
+            var_counter += 1
 
 def extractVideo(inputdir, outputdir):
 	print subprocess.Popen('ffmpeg -i '+inputdir+' -f image2 '+outputdir+'/image-%3d.jpeg', shell=True, stdout=subprocess.PIPE).stdout.read()
