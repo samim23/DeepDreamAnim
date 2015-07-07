@@ -21,16 +21,16 @@ A preview function make rapid iterations possible.
 
 
 ## Settings
-Create a preview
+Create a preview  
 `python dreamer.py --input myvideo --output myvideo/frames --preview 600 `
 
-Tweak settings
+Tweak settings  
 `python dreamer.py --input myvideo --output myvideo/frames --preview 600 --octaves 4 --octavescale 1.4 --iterations 10 --jitter 32 --zoom 1 --stepsize 1.5 --blend 0.5 --layers inception_3a/output inception_3b/output`
 
 (Preview changes Images to width of choice, original files not changed)
 
 ## Batch Processing
-Use the above commands and stack them by putting a ";" inbetween commands.
+Use the above commands and stack them by putting a ";" inbetween commands.  
 `python dreamer.py --input myvideo --output myvideo/frames;python dreamer.py --input myvideo --output myvideo/frames`
 
 
