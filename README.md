@@ -19,6 +19,9 @@ A preview function make rapid iterations possible.
 
 (change "myvideo" to your directory/file name)
 
+(change the path of the caffe model inside dreamer.py to where your model is )
+
+
 ![deepdreamanim](https://i.imgur.com/MpoYxZX.gif "deep dream animation")
 
 ## Settings
