@@ -53,7 +53,7 @@ Optical flow + Guided Dreaming tests
 
 
 ## Creative Request
-It would be very helpful for other deepdream researchers, if you could include the used parameters in the description of your youtube videos. You can find the parameters in the image filenames.
+It would be very helpful for other deepdream researchers, if you could include the used parameters in the description of your youtube videos.
 
 ## Requirements
 - Python
