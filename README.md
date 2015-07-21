@@ -43,6 +43,15 @@ Use the above commands and stack them by putting a ";" inbetween commands.
 
 ![deepdreamanim](https://i.imgur.com/6bpKNVL.gif "deep dream animation")
 
+## Examples
+
+DeepDream Music Video
+[![Musiv Video](https://i.imgur.com/h6ECI0M.jpg)](https://vimeo.com/133275555 "Music Video")
+
+Optical flow + Guided Dreaming tests
+[![test](https://i.imgur.com/7B0XOmu.jpg)](https://www.youtube.com/watch?v=hTrqfw9oxg4 "test")
+
+
 ## Creative Request
 It would be very helpful for other deepdream researchers, if you could include the used parameters in the description of your youtube videos. You can find the parameters in the image filenames.
 
@@ -50,6 +59,7 @@ It would be very helpful for other deepdream researchers, if you could include t
 - Python
 - Caffe (and other deepdream dependencies)
 - FFMPEG
+- CV2 (if you use optical flow)
 
 ## Audio
 The tool currently does not handle audio.
