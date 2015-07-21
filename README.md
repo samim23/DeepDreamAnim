@@ -3,7 +3,7 @@
 This tool helps to create animations with [deepdream](https://github.com/google/deepdream).
 Extract frames from videos, process them with deepdream and then output as new video file.
 Frame blending option is provided, to ensure "stable" dreams across frames.
-A preview function make rapid iterations possible.
+A preview function make rapid iterations possible. Optionally guided dreaming & optical flow can be used.
 
 ![deepdreamanim](https://i.imgur.com/JiMIQ01.gif "deep dream animation")
 
