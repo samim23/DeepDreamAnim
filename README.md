@@ -12,20 +12,22 @@ A preview function make rapid iterations possible.
 `python dreamer.py --input myvideo/video.mp4 --output myvideo --extract 1`
 
 2. Run DeepDream  
-`python dreamer.py --input myvideo --output frames`
+`python dreamer.py --input myvideo --output myvideo/frames`
 
 3. Create Video  
-`python dreamer.py --input frames --output myvideo/deepdreamvideo.mp4 --create 1`
+`python dreamer.py --input myvideo/frames --output myvideo/deepdreamvideo.mp4 --create 1`
 
 (change "myvideo" to your directory/file name)
 
 (change the path of the caffe model inside dreamer.py to where your model is )
 
-
 ![deepdreamanim](https://i.imgur.com/MpoYxZX.gif "deep dream animation")
 
 ## Settings
-Create a preview  
+Use Optical Flow & Guided Dreams & GPU
+python dreamer.py --input myvideo --output myvideo/frames --octaves 4 --octavescale 1 --iterations 10 --jitter 32 --zoom 1 --stepsize 1.5 --blend 0 --layers inception_3b/output --gpu 1 --flow 1 --guide guide/flowers.png
+
+Create a preview (currently does not work with flow)
 `python dreamer.py --input myvideo --output myvideo/frames --preview 600 `
 
 Tweak settings  
