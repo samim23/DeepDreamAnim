@@ -27,7 +27,7 @@ A preview function make rapid iterations possible. Optionally guided dreaming & 
 Use Optical Flow & Guided Dreams & GPU  
 `python dreamer.py --input myvideo --output myvideo/frames --octaves 4 --octavescale 1 --iterations 10 --jitter 32 --zoom 1 --stepsize 1.5 --blend 0 --layers inception_3b/output --gpu 1 --flow 1 --guide guide/flowers.png`
 
-Create a preview (currently does not work with flow)
+Create a preview (currently does not work with flow)  
 `python dreamer.py --input myvideo --output myvideo/frames --preview 600 `
 
 Tweak settings  
