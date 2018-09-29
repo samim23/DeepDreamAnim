@@ -153,8 +153,7 @@ def main(inputdir, outputdir, preview, octaves, octave_scale, iterations, jitter
         caffe.set_device(0)
 
     # load images & sort them
-    vidinput = os.listdir(inputdir)
-    #vidinput = natsort.natsorted(os.listdir(inputdir))
+    vidinput = sorted(os.listdir(inputdir))
     vids = []
     var_counter = 1
 
@@ -233,7 +232,7 @@ def main(inputdir, outputdir, preview, octaves, octave_scale, iterations, jitter
                 img = np.float32(PIL.Image.open(newframe))
                 grayImg = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
                 flow = cv2.calcOpticalFlowFarneback(previousGrayImg, grayImg, pyr_scale=0.5, levels=3, winsize=15,
-                                                    iterations=3, poly_n=5, poly_sigma=1.2, flags=0)
+                                                    iterations=3, poly_n=5, poly_sigma=1.2, flags=0, flow=None)
                 flow = -flow
                 flow[:, :, 0] += np.arange(w)
                 flow[:, :, 1] += np.arange(h)[:, np.newaxis]
